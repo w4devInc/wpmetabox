@@ -1,0 +1,34 @@
+{
+    "name": "w4devinc/wpmetabox",
+    "description": "A metabox abstraction layer for WordPress plugin & theme development.",
+    "homepage": "http://w4dev.com/wpmetabox",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "keywords": ["metabox", "wordpress"],
+    "authors": [
+        {
+            "name" : "Shazzad Hossain Khan",
+            "email": "hello@shazzad.me",
+            "homepage": "https://shazzad.me",
+            "role" : "Developer"
+        }
+    ],
+	"repositories": [
+		{
+			"url": "https://github.com/w4devinc/wpform",
+			"type": "vcs"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"w4devinc/wpform": "dev-master"
+	},
+    "autoload": {
+        "psr-4": {
+            "W4dev\\Wpmetabox\\": "src/"
+        },
+        "classmap": [
+            "src"
+        ]
+    }
+}
