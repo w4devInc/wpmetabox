@@ -21,6 +21,12 @@ class Taxonomy_Metabox_Service
 			Form_Api::register_form_scripts();
 			Form_Api::enqueue_form_scripts();
 		}
+
+		/* load media support as we may need this */
+		/* TODO - load this conditionally whether required */
+		if (function_exists('wp_enqueue_media') && ! did_action('wp_enqueue_media')) {
+			wp_enqueue_media();
+		}
 	}
 
 	/* register meta boxes on the screen */
