@@ -2,7 +2,7 @@
 namespace W4dev\Wpmetabox;
 use \W4dev\Wpform\Api as Form_Api;
 
-class Post_Type_Metabox_Service
+class Post_Metabox_Service
 {
 	public function __construct()
 	{
