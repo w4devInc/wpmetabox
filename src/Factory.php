@@ -21,12 +21,10 @@ class Factory
 		self::$metaboxes[] = $metabox;
 	}
 
-	public static function create_metabox($id, $class_name)
+	public static function register_metaboxes($metaboxes = [])
 	{
-		if (class_exists($class_name)) {
-			return new $class_name();
+		foreach ($metaboxes as $metabox) {
+			self::register_metabox($metabox);
 		}
-
-		throw new Exception(__('Metabox not found', 'ocn'));
 	}
 }

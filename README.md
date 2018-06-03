@@ -11,16 +11,20 @@ $ git clone https://github.com/w4devinc/wpmetabox.git
 
 ## Basic Usage
 
-Create a metabox class
+Create a metabox class extending our base class
 
 ```
 class Metabox_Additional_Post_Settings extends W4dev\Wpmetabox\Base
 {
 	public function __construct()
 	{
+		/* type = post|term */
 		$this->type = 'post';
+		/* an unique string identifier */
 		$this->id = 'form_settings';
+		/* metabox title */
 		$this->title = __('Additional Post Settings', 'ocn');
+		/* screens would be array of post_types / taxonomies */
 		$this->screens = ['post'];
 	}
 
@@ -74,6 +78,5 @@ W4dev\Wpmetabox\Factory::register_metabox(new Metabox_Additional_Post_Settings()
 
 Invoke the metabox service
 ```
-new W4dev\Wpmetabox\Post_Type_Metabox_Service();
-new W4dev\Wpmetabox\Taxonomy_Metabox_Service();
+new W4dev\Wpmetabox\Service::init();
 ```
