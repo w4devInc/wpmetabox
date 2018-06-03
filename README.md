@@ -78,5 +78,5 @@ W4dev\Wpmetabox\Factory::register_metabox(new Metabox_Additional_Post_Settings()
 
 ### 3. Invoke the metabox service
 ```php
-new W4dev\Wpmetabox\Service::init();
+W4dev\Wpmetabox\Service::init();
 ```
