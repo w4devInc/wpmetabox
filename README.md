@@ -20,10 +20,13 @@ class Metabox_Additional_Post_Settings extends W4dev\Wpmetabox\Base
     {
         /* type = post|term */
         $this->type = 'post';
+
         /* an unique string identifier */
         $this->id = 'form_settings';
+
         /* metabox title */
         $this->title = __('Additional Post Settings', 'ocn');
+
         /* screens would be array of post_types / taxonomies */
         $this->screens = ['post'];
     }
