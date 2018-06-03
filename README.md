@@ -2,16 +2,16 @@
 
 A metabox abstraction layer for WordPress plugin & theme development.
 
-## Installation
+### Installing
 
-### Using git clone
+Clone the repo
 ```
 $ git clone https://github.com/w4devinc/wpmetabox.git
 ```
 
 ## Basic Usage
 
-Create a metabox class extending our base class
+### 1. Create a metabox class extending our base class
 
 ```php
 class Metabox_Additional_Post_Settings extends W4dev\Wpmetabox\Base
@@ -71,12 +71,12 @@ class Metabox_Additional_Post_Settings extends W4dev\Wpmetabox\Base
 }
 ```
 
-Register the metabox class
+### 2. Register the metabox class using factory
 ```php
 W4dev\Wpmetabox\Factory::register_metabox(new Metabox_Additional_Post_Settings());
 ```
 
-Invoke the metabox service
+### 3. Invoke the metabox service
 ```php
 new W4dev\Wpmetabox\Service::init();
 ```
