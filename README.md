@@ -13,7 +13,7 @@ $ git clone https://github.com/w4devinc/wpmetabox.git
 
 Create a metabox class extending our base class
 
-```
+```php
 class Metabox_Additional_Post_Settings extends W4dev\Wpmetabox\Base
 {
 	public function __construct()
@@ -72,11 +72,11 @@ class Metabox_Additional_Post_Settings extends W4dev\Wpmetabox\Base
 ```
 
 Register the metabox class
-```
+```php
 W4dev\Wpmetabox\Factory::register_metabox(new Metabox_Additional_Post_Settings());
 ```
 
 Invoke the metabox service
-```
+```php
 new W4dev\Wpmetabox\Service::init();
 ```
