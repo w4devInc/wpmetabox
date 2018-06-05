@@ -125,6 +125,7 @@ abstract class Base
 					/* repeater field carries a hidden field group, we will clear that out */
 					if ('repeater' == $field['type'] && isset($value['KEY'])) {
 						unset($value['KEY']);
+						$value = array_values($value);
 					}
 
 				} elseif(isset($field['default'])) {
