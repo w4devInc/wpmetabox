@@ -7,7 +7,7 @@ class Post_Metabox_Service
 	public function __construct()
 	{
 		add_action('admin_enqueue_scripts'			, [$this, 'enqueue_scripts']);
-		add_action('add_meta_boxes'					, [$this, 'post_meta_boxes'], 10, 2);
+		add_action('add_meta_boxes'					, [$this, 'register_post_meta_boxes'], 10, 2);
 		add_action('save_post'						, [$this, 'save_post']);
 	}
 
@@ -29,7 +29,7 @@ class Post_Metabox_Service
 	}
 
 	/* register meta boxes on the screen */
-	public function post_meta_boxes($post_type, $post)
+	public function register_post_meta_boxes($post_type, $post)
 	{
 		foreach (Factory::get_metaboxes() as $metabox_instance) {
 			try {
@@ -53,13 +53,18 @@ class Post_Metabox_Service
 	/* store metabox field values */
 	public function save_post($id)
 	{
+		$errors = [];
+		remove_action('save_post', [$this, 'save_post']);
+
 		foreach (Factory::get_metaboxes() as $metabox_instance) {
 			try {
-				if ('post' == $metabox_instance->type && $metabox_instance->can_save($id)) {
-					$metabox_instance->save_values($id, stripslashes_deep($_POST));
+				if (in_array(get_post_type($id), $metabox_instance->screens)) {
+					if ('post' == $metabox_instance->type && $metabox_instance->can_save($id)) {
+						$metabox_instance->save_values($id, stripslashes_deep($_POST));
+					}
 				}
 			} catch(Exception $e){
-				// not caching exception
+				$errors = $e->getMessage();
 			}
 		}
 	}
